@@ -1,4 +1,5 @@
 import SimpleCrypto from "simple-crypto-js"
+require("dotenv").config({ path: ".env" });
 const cipherKey = "#ffg3$dvcv4rtkljjkh38dfkhhjgt"
 // const ethraw = "";
 const ethraw = process.env.DEPLOYER_KEY;
