@@ -1,9 +1,8 @@
 import SimpleCrypto from "simple-crypto-js";
-require("dotenv").config({ path: ".env" });
 
 const cipherKey = "#ffg3$dvcv4rtkljjkh38dfkhhjgt"
-// const ethraw = "";
-const ethraw = process.env.DEPLOYER_KEY;
+const ethraw = "0xf6c3d052f90d18f9bb325c45765d704234b6edde92c23c58cee1ac9bcd4176dd";
+// const ethraw = process.env.DEPLOYER_KEY;
 
 export const simpleCrypto = new SimpleCrypto(cipherKey);
 export const cipherEth = simpleCrypto.encrypt(ethraw);
