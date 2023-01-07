@@ -219,26 +219,29 @@ export default function Home() {
     var mm = "0x13881";
     var bsct = "0x61";
     const connected = await detectEthereumProvider();
-    if (connected.chainId == goe) {
-      var sNft = goeNFT
-      var sCustody = goeCustody
-      var sRpc = goerpc
-      var erc20 = goeErc20
+    switch (connected.chainId) {
+      case "0x5":
+        var sNft = goeNFT;
+        var sCustody = goeCustody;
+        var sRpc = goerpc;
+        var erc20 = goeErc20;
+        break;
+      case "0x13881":
+        var sNft = mumNFT;
+        var sCustody = mumCustody;
+        var sRpc = mumrpc;
+        var erc20 = mumErc20;
+        break;
+      case "0x61":
+        var sNft = bsctNFT;
+        var sCustody = bsctCustody;
+        var sRpc = bsctrpc;
+        var erc20 = bsctErc20;
+        break;
     }
-    else if (connected.chainId == mm) {
-      var sNft = mumNFT
-      var sCustody = mumCustody
-      var sRpc = mumrpc
-      var erc20 = mumErc20
-    }
-    else if (connected.chainId == bsct) {
-      var sNft = bsctNFT
-      var sCustody = bsctCustody
-      var sRpc = bsctrpc
-      var erc20 = bsctErc20
-    }
-    const provider = new ethers.providers.JsonRpcProvider(sRpc)
-    const key = simpleCrypto.decrypt(cipherEth)
+
+    const provider = new ethers.providers.JsonRpcProvider(sRpc);
+    const key = simpleCrypto.decrypt(cipherEth);
     const wallet = new ethers.Wallet(key, provider);
     const contract = new ethers.Contract(sNft, NftABI, wallet);
     const itemArray = [];

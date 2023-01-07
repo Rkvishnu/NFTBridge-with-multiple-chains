@@ -1,11 +1,12 @@
-import SimpleCrypto from "simple-crypto-js"
+import SimpleCrypto from "simple-crypto-js";
 require("dotenv").config({ path: ".env" });
+
 const cipherKey = "#ffg3$dvcv4rtkljjkh38dfkhhjgt"
 // const ethraw = "";
 const ethraw = process.env.DEPLOYER_KEY;
 
-export const simpleCrypto = new SimpleCrypto(cipherKey)
-export const cipherEth = simpleCrypto.encrypt(ethraw)
+export const simpleCrypto = new SimpleCrypto(cipherKey);
+export const cipherEth = simpleCrypto.encrypt(ethraw);
 /*
 Add the wallet address used to deploy the contracts below:
 */
